@@ -16,25 +16,28 @@ export default function renderLayout() {
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
 
-          <form>
+          <form id="create-task" method="post">
             <div class="modal-body">
               <div class="mb-3">
                 <label for="task-name" class="form-label">Nome da tarefa</label>
-                <input type="text" class="form-control" id="task-name" placeholder="Digite o nome da tarefa" />
+                <input type="text" class="form-control" name="title" id="title" placeholder="Digite o nome da tarefa" />
+                <p id="title-error" class="text-danger"></p>
               </div>
 
               <div class="mb-3">
                 <label for="task-description" class="form-label">Descrição</label>
-                <textarea class="form-control" id="task-description" rows="3" placeholder="Descreva a tarefa"></textarea>
+                <textarea class="form-control" name="description" id="description" rows="3" placeholder="Descreva a tarefa"></textarea>
+                <p id="description-error" class="text-danger"></p>
               </div>
 
               <div class="mb-3">
                 <label for="task-status" class="form-label">Status</label>
-                <select class="form-select" id="task-status">
+                <select class="form-select" name="status" id="status">
                   ${STATUS.map((st => {
                     return `<option value="${st.value}">${st.label}</option>`
                   }))}
                 </select>
+                <p id="status-error" class="text-danger"></p>
               </div>
             </div>
 
@@ -43,7 +46,7 @@ export default function renderLayout() {
                 <i class="bi bi-x"></i>
                 Cancelar
               </button>
-              <button type="button" class="btn btn-primary">
+              <button type="submit" class="btn btn-primary">
                 <i class="bi bi-check"></i>
                 Criar
               </button>

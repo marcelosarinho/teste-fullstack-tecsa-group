@@ -1,7 +1,7 @@
 <?php
 
 class Validator {
-    public static function validate($data, $rules) {
+    public static function validate($data) {
         $errors = [];
 
         if (!isset($data['title']) || empty($data['title'])) {
