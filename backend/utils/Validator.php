@@ -3,28 +3,34 @@
 class Validator {
     public static function validate($data, $rules) {
         $errors = [];
-        
-        foreach ($rules as $field => $rule) {
-            if (!isset($data[$field])) {
-                $errors[$field] = 'Campo obrigatório';
-                continue;
-            }
-            
-            $value = $data[$field];
-            
-            if ($rule['required'] && empty($value)) {
-                $errors[$field] = 'Campo obrigatório';
-            }
-            
-            if (!empty($value) && isset($rule['min_length']) && strlen($value) < $rule['min_length']) {
-                $errors[$field] = 'Mínimo de ' . $rule['min_length'] . ' caracteres';
-            }
-            
-            if (!empty($value) && isset($rule['max_length']) && strlen($value) > $rule['max_length']) {
-                $errors[$field] = 'Máximo de ' . $rule['max_length'] . ' caracteres';
+
+        if (!isset($data['title']) || empty($data['title'])) {
+            $errors['title'] = 'Título é obrigatório';
+        }
+
+        if (isset($data['title']) && strlen($data['title']) > 255) {
+            $errors['title'] = 'Título deve ter no máximo 255 caracteres';
+        }
+
+        if (!isset($data['description']) || empty($data['description'])) {
+            $errors['description'] = 'Descrição é obrigatória';
+        }
+
+        if (isset($data['description']) && strlen($data['description']) > 255) {
+            $errors['description'] = 'Descrição deve ter no máximo 255 caracteres';
+        }
+
+        if (!isset($data['status']) || empty($data['status'])) {
+            $errors['status'] = 'Status é obrigatório';
+        }
+
+        if (isset($data['status'])) {
+            $status = Status::tryFrom($data['status']);
+            if ($status === null) {
+                $errors['status'] = 'Status inválido';
             }
         }
-        
+
         return $errors;
     }
 }
