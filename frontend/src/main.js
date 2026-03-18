@@ -7,6 +7,7 @@ import renderTasksHeader from './ui/tasks-header'
 
 import './scripts/tasks/get-tasks'
 import './scripts/tasks/create-task'
+import './scripts/tasks/edit-task'
 
 renderLayout();
 renderTasksHeader();
