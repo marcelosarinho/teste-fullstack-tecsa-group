@@ -19,19 +19,19 @@ export default function renderLayout() {
           <form id="create-task" method="post">
             <div class="modal-body">
               <div class="mb-3">
-                <label for="task-name" class="form-label">Nome da tarefa</label>
+                <label for="title" class="form-label">Nome da tarefa</label>
                 <input type="text" class="form-control" name="title" id="title" placeholder="Digite o nome da tarefa" />
                 <p id="title-error" class="text-danger"></p>
               </div>
 
               <div class="mb-3">
-                <label for="task-description" class="form-label">Descrição</label>
+                <label for="description" class="form-label">Descrição</label>
                 <textarea class="form-control" name="description" id="description" rows="3" placeholder="Descreva a tarefa"></textarea>
                 <p id="description-error" class="text-danger"></p>
               </div>
 
               <div class="mb-3">
-                <label for="task-status" class="form-label">Status</label>
+                <label for="status" class="form-label">Status</label>
                 <select class="form-select" name="status" id="status">
                   ${STATUS.map((st => {
                     return `<option value="${st.value}">${st.label}</option>`

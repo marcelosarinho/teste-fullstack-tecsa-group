@@ -5,7 +5,7 @@ export default function renderTasksList() {
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 
-  <section class="card p-3">
+  <section class="card p-3 table-responsive">
     <table class="table">
       <thead>
         <tr>

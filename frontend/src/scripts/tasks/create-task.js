@@ -21,7 +21,7 @@ $(document).ready(function() {
             url: 'http://localhost:9000/tasks',
             type: 'POST',
             dataType: 'json',
-            data: data,
+            data: JSON.stringify(data),
             success: function(response) {
                 console.log(response);
             },

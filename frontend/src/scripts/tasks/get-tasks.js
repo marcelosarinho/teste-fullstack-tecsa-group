@@ -6,8 +6,6 @@ $(document).ready(function() {
         type: 'GET',
         dataType: 'json',
         success: function(response) {
-            console.log(response.data);
-
             const tasks = response.data;
 
             $('#tasks').html(
@@ -20,7 +18,7 @@ $(document).ready(function() {
                             <td>${task.description}</td>
                             <td><span class="badge rounded-pill ${status.color}">${status.label}</span></td>
                             <td>${new Date(task.created_at).toLocaleDateString('pt-BR')}</td>
-                            <td class="d-flex flex-wrap gap-2">
+                            <td class="d-flex gap-2">
                                 <button class="btn btn-sm btn-outline-success rounded-circle">
                                     <i class="bi bi-check-lg"></i>
                                 </button>
