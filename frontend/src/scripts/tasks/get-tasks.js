@@ -25,15 +25,24 @@ $(document).ready(function() {
                                     <i class="bi bi-check-lg"></i>
                                 </button>
                                 <button
+                                    type="button"
+                                    class="btn btn-sm btn-outline-primary rounded-circle edit-task-btn"
+                                    data-task-id="${task.id}"
+                                    data-task-title="${task.title}"
+                                    data-task-description="${task.description}"
+                                    data-task-status="${task.status}"
                                     data-bs-toggle="modal"
                                     data-bs-target="#modal-edit-task"
                                     title="Editar tarefa"
-                                    class="btn btn-sm btn-outline-primary rounded-circle">
+                                >
                                     <i class="bi bi-pencil"></i>
                                 </button>
                                 <button
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modal-delete-task"
                                     title="Excluir tarefa"
-                                    class="btn btn-sm btn-outline-danger rounded-circle">
+                                    class="btn btn-sm btn-outline-danger rounded-circle delete-task-btn"
+                                    data-task-id="${task.id}">
                                     <i class="bi bi-trash"></i>
                                 </button>
                                 <button

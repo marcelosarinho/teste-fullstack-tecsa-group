@@ -32,8 +32,14 @@ export function validateForm(data) {
     return errors;
 }
 
-export function renderFormErrors(errors) {
+export function renderCreateFormErrors(errors) {
     Object.entries(errors).forEach(([key, value]) => {
         $(`#${key}-error`).text(value);
+    });
+}
+
+export function renderEditFormErrors(errors) {
+    Object.entries(errors).forEach(([key, value]) => {
+        $(`#edit-${key}-error`).text(value);
     });
 }

@@ -1,4 +1,4 @@
-import { validateForm, renderFormErrors } from "../../util/functions";
+import { validateForm, renderCreateFormErrors } from "../../util/functions";
 
 $(document).ready(function() {
     $('#create-task').on('submit', function(e) {
@@ -13,7 +13,7 @@ $(document).ready(function() {
         const errors = validateForm(data);
         
         if (Object.keys(errors).length > 0) {
-            renderFormErrors(errors);
+            renderCreateFormErrors(errors);
             return;
         }
 
@@ -23,10 +23,10 @@ $(document).ready(function() {
             dataType: 'json',
             data: JSON.stringify(data),
             success: function(response) {
-                console.log(response);
+                $('#alert-create-success').removeClass('d-none');
             },
             error: function(error) {
-                console.log(error);
+                $('#alert-create-error').removeClass('d-none');
             }
         });
     });
