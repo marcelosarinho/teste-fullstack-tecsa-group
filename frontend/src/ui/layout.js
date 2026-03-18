@@ -1,3 +1,5 @@
+import { STATUS } from "../constants/status";
+
 export default function renderLayout() {
   document.querySelector('#app').innerHTML = `
   <main id="todo-list" class="container d-flex flex-column gap-3">
@@ -26,11 +28,11 @@ export default function renderLayout() {
             </div>
 
             <div class="mb-3">
-              <label for="task-priority" class="form-label">Prioridade</label>
-              <select class="form-select" id="task-priority">
-                <option value="low">Baixa</option>
-                <option value="medium">Média</option>
-                <option value="high">Alta</option>
+              <label for="task-status" class="form-label">Prioridade</label>
+              <select class="form-select" id="task-status">
+                ${STATUS.map((st => {
+                  return `<option value="${st.value}">${st.label}</option>`
+                }))}
               </select>
             </div>
           </div>
