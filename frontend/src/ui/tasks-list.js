@@ -1,6 +1,6 @@
 export function renderTasksList() {
-  document.querySelector('#app').innerHTML = `
-  <section id="tasks-list" class="card p-3">
+  document.querySelector('#tasks-list').innerHTML = `
+  <section class="card p-3">
     <table class="table">
       <thead>
         <tr>
