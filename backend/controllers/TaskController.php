@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../utils/getIdFromUri.php';
+
 class TaskController {
   private $service;
 
@@ -24,9 +26,7 @@ class TaskController {
   
   public function update()
   {
-    $uri = $_SERVER['REQUEST_URI'];
-    $parts = explode('/', $uri); // separa por /
-    $id = (int) end($parts);
+    $id = getIdFromUri();
     $task = json_decode(file_get_contents('php://input'), true);
 
     $this->service->update($id, $task);
@@ -36,9 +36,7 @@ class TaskController {
   
   public function delete()
   {
-    $uri = $_SERVER['REQUEST_URI'];
-    $parts = explode('/', $uri); // separa por /
-    $id = (int) end($parts);
+    $id = getIdFromUri();
 
     $this->service->delete($id);
 
