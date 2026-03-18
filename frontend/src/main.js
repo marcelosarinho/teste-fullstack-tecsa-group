@@ -1,7 +1,6 @@
 import './style.css'
 import { renderLayout } from './ui/layout'
-import { renderTasksStatus } from './ui/tasksStatus'
+import { renderTasksStatus } from './ui/tasks-status'
 
 renderLayout();
 renderTasksStatus();
-
