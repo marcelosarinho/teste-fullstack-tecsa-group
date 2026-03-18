@@ -35,7 +35,7 @@ export default function renderLayout() {
     <section id="tasks-search"></section>
     <section id="tasks-list"></section>
 
-    <div id="modal-add-task" class="modal fade" tabindex="-1">
+    <div id="modal-create-task" class="modal fade" tabindex="-1">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div class="modal-header">
@@ -92,6 +92,7 @@ export default function renderLayout() {
           </div>
 
           <form id="edit-task">
+            <input type="hidden" name="edit-id" id="edit-id" />
             <div class="modal-body">
               <div class="mb-3">
                 <label for="edit-title" class="form-label">Nome da tarefa</label>
@@ -131,7 +132,7 @@ export default function renderLayout() {
       </div>
     </div>
 
-    <div id="modal-delete-task" class="modal" tabindex="-1">
+    <div id="modal-delete-task" class="modal fade" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -146,7 +147,7 @@ export default function renderLayout() {
               <i class="bi bi-x"></i>
               Cancelar
             </button>
-            <button type="button" class="btn btn-danger">
+            <button id="confirm-delete-task-btn" type="button" class="btn btn-danger">
               <i class="bi bi-trash"></i>
               Excluir
             </button>

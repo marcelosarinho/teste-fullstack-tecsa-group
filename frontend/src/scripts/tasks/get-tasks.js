@@ -1,4 +1,5 @@
 import { STATUS } from "../../constants/status";
+import { countTasksStatus, tasksStatusQuantity } from "../../util/functions";
 
 $(document).ready(function() {
     $.ajax({
@@ -7,6 +8,9 @@ $(document).ready(function() {
         dataType: 'json',
         success: function(response) {
             const tasks = response.data;
+
+            const statusCounts = countTasksStatus(tasks);
+            tasksStatusQuantity(statusCounts);
 
             $('#tasks').html(
                 tasks.map(task => {

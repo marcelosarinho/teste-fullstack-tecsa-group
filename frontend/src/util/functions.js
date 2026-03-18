@@ -43,3 +43,19 @@ export function renderEditFormErrors(errors) {
         $(`#edit-${key}-error`).text(value);
     });
 }
+
+export function countTasksStatus(tasks) {
+    return tasks.reduce((acc, task) => {
+        acc[task.status] = (acc[task.status] || 0) + 1;
+        return acc;
+    }, {});
+}
+
+export function tasksStatusQuantity(statusCounts) {
+    const total = (statusCounts.pending || 0) + (statusCounts.in_progress || 0) + (statusCounts.completed || 0);
+
+    $('#total-tasks').text(total);
+    $('#pending-tasks').text(statusCounts.pending || 0);
+    $('#in-progress-tasks').text(statusCounts.in_progress || 0);
+    $('#completed-tasks').text(statusCounts.completed || 0);
+}

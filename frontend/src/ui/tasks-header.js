@@ -6,7 +6,7 @@ export default function renderTasksHeader() {
         <h2 class="mb-0">Gerenciamento de Tarefas</h2>
       </div>
 
-      <button class="btn btn-primary d-flex align-items-center gap-1 fs-6" data-bs-toggle="modal" data-bs-target="#modal-add-task">
+      <button class="btn btn-primary d-flex align-items-center gap-1 fs-6" data-bs-toggle="modal" data-bs-target="#modal-create-task">
         <i class="bi bi-plus"></i>
         Adicionar Tarefa
       </button>

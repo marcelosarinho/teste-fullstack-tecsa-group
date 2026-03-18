@@ -22,11 +22,16 @@ $(document).ready(function() {
             type: 'POST',
             dataType: 'json',
             data: JSON.stringify(data),
-            success: function(response) {
-                $('#alert-create-success').removeClass('d-none');
+            success: function() {
+                $('#alert-create-success').removeClass('d-none').addClass('show');
+                $('#modal-create-task').modal('hide');
+
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
             },
-            error: function(error) {
-                $('#alert-create-error').removeClass('d-none');
+            error: function() {
+                $('#alert-create-error').removeClass('d-none').addClass('show');
             }
         });
     });
