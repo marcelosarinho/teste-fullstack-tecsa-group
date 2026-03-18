@@ -16,11 +16,15 @@ class TaskRepository {
 
   public function create($task)
   {
-    $stmt = $this->db->prepare("INSERT INTO tasks (title, description, status) VALUES (:title, :description, :status)");
+    $stmt = $this->db->prepare("INSERT INTO tasks (title, description, status, created_at, updated_at) VALUES (:title, :description, :status, :created_at, :updated_at)");
 
-    $stmt->bindParam(':title', $task->title, PDO::PARAM_STR);
-    $stmt->bindParam(':description', $task->description, PDO::PARAM_STR);
-    $stmt->bindParam(':status', $task->status, PDO::PARAM_STR);
+    $now = date('Y-m-d H:i:s');
+
+    $stmt->bindParam(':title', $task['title'], PDO::PARAM_STR);
+    $stmt->bindParam(':description', $task['description'], PDO::PARAM_STR);
+    $stmt->bindParam(':status', $task['status'], PDO::PARAM_STR);
+    $stmt->bindParam(':created_at', $now, PDO::PARAM_STR);
+    $stmt->bindParam(':updated_at', $now, PDO::PARAM_STR);
     $stmt->execute();
 
     return $this->db->lastInsertId();
@@ -28,11 +32,14 @@ class TaskRepository {
 
   public function update($id, $task)
   {
-    $stmt = $this->db->prepare("UPDATE tasks SET title = :title, description = :description, status = :status WHERE id = :id");
+    $stmt = $this->db->prepare("UPDATE tasks SET title = :title, description = :description, status = :status, updated_at = :updated_at WHERE id = :id");
 
-    $stmt->bindParam(':title', $task->title, PDO::PARAM_STR);
-    $stmt->bindParam(':description', $task->description, PDO::PARAM_STR);
-    $stmt->bindParam(':status', $task->status, PDO::PARAM_STR);
+    $now = date('Y-m-d H:i:s');
+
+    $stmt->bindParam(':title', $task['title'], PDO::PARAM_STR);
+    $stmt->bindParam(':description', $task['description'], PDO::PARAM_STR);
+    $stmt->bindParam(':status', $task['status'], PDO::PARAM_STR);
+    $stmt->bindParam(':updated_at', $now, PDO::PARAM_STR);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
 
