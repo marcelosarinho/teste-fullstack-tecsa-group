@@ -50,14 +50,21 @@ $(document).ready(function() {
                                     <i class="bi bi-trash"></i>
                                 </button>
                                 <button
+                                    ${task.status === "em_andamento" ? "disabled" : ""}
                                     title="Iniciar tarefa"
                                     class="btn btn-sm btn-outline-info rounded-circle">
                                     <i class="bi bi-play"></i>
                                 </button>
+                                <button
+                                    ${task.status === "pendente" || task.status === "concluido" ? "disabled" : ""}
+                                    title="Pausar tarefa"
+                                    class="btn btn-sm btn-outline-warning rounded-circle">
+                                    <i class="bi bi-pause"></i>
+                                </button>
                             </td>
                         </tr>
                     `;
-                }).join('')
+                })
             );
         },
         error: function(error) {

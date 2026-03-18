@@ -52,10 +52,10 @@ export function countTasksStatus(tasks) {
 }
 
 export function tasksStatusQuantity(statusCounts) {
-    const total = (statusCounts.pending || 0) + (statusCounts.in_progress || 0) + (statusCounts.completed || 0);
+    const total = Object.values(statusCounts).reduce((acc, value) => acc + Number(value || 0), 0);
 
     $('#total-tasks').text(total);
-    $('#pending-tasks').text(statusCounts.pending || 0);
-    $('#in-progress-tasks').text(statusCounts.in_progress || 0);
-    $('#completed-tasks').text(statusCounts.completed || 0);
+    $('#pending-tasks').text(statusCounts.pendente || 0);
+    $('#in-progress-tasks').text(statusCounts.em_andamento || 0);
+    $('#completed-tasks').text(statusCounts.concluido || 0);
 }
