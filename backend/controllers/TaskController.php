@@ -24,7 +24,9 @@ class TaskController {
   
   public function update()
   {
-    $id = $_GET['id'];
+    $uri = $_SERVER['REQUEST_URI'];
+    $parts = explode('/', $uri); // separa por /
+    $id = (int) end($parts);
     $task = json_decode(file_get_contents('php://input'), true);
 
     $this->service->update($id, $task);
@@ -34,7 +36,9 @@ class TaskController {
   
   public function delete()
   {
-    $id = $_GET['id'];
+    $uri = $_SERVER['REQUEST_URI'];
+    $parts = explode('/', $uri); // separa por /
+    $id = (int) end($parts);
 
     $this->service->delete($id);
 

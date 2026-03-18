@@ -10,7 +10,11 @@ class Router {
 
   public function add($method, $path, $callback)
   {
-    $this->routes[] = compact('method', 'path', 'callback');
+    // Aqui, nesse caso, como estou usando PHP puro tive que mexer com regex para pegar o ID da url em casos como tasks/{id}
+    $regex = preg_replace('/\{[a-zA-Z0-9_]+\}/', '([0-9]+)', $path);
+    $regex = "#^$regex$#";
+
+    $this->routes[] = compact('method', 'regex', 'callback');
   }
   
   public function get($path, $handler)
@@ -39,8 +43,9 @@ class Router {
     $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     
     foreach ($this->routes as $route) {
-      if ($route['method'] === $method && $route['path'] === $path) {
-        call_user_func($route['callback']);
+      if ($route['method'] === $method && preg_match($route['regex'], $path, $matches)) {
+        array_shift($matches);
+        call_user_func_array($route['callback'], $matches);
         return;
       }
     }
