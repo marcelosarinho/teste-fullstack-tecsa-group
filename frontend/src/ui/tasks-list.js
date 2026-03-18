@@ -1,4 +1,4 @@
-export function renderTasksList() {
+export default function renderTasksList() {
   document.querySelector('#tasks-list').innerHTML = `
   <section class="card p-3">
     <table class="table">

@@ -1,4 +1,4 @@
-export function renderTasksHeader() {
+export default function renderTasksHeader() {
   document.querySelector('#tasks-header').innerHTML = `
     <section class="card d-flex flex-column align-items-center gap-3 p-3">
       <div class="d-flex flex-row align-items-center gap-3">

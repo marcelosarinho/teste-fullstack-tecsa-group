@@ -1,4 +1,4 @@
-export function renderTasksSearch() {
+export default function renderTasksSearch() {
   document.querySelector('#tasks-search').innerHTML = `
     <section class="card p-3">
       <div class="row align-items-center g-3">
