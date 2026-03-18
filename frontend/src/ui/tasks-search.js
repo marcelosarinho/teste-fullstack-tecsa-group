@@ -12,10 +12,10 @@ export function renderTasksSearch() {
         </div>
 
         <div class="col-12 col-md-6 btn-group gap-3 flex-wrap">
-          <button class="btn btn-primary btn-sm rounded-pill">Todas</button>
-          <button class="btn btn-primary btn-sm rounded-pill">Concluídas</button>
-          <button class="btn btn-primary btn-sm rounded-pill">Pendentes</button>
-          <button class="btn btn-primary btn-sm rounded-pill">Em andamento</button>
+          <button class="btn btn-outline-primary btn-sm rounded-pill">Todas</button>
+          <button class="btn btn-outline-primary btn-sm rounded-pill">Concluídas</button>
+          <button class="btn btn-outline-primary btn-sm rounded-pill">Pendentes</button>
+          <button class="btn btn-outline-primary btn-sm rounded-pill">Em andamento</button>
         </div>
       </div>
     </section>
