@@ -1,5 +1,5 @@
 export function renderTasksSearch() {
-  document.querySelector('#todo-list').innerHTML = `
+  document.querySelector('#app').innerHTML = `
     <section id="tasks-search" class="card p-3">
       <div class="row align-items-center g-3">
         <div class="col-12 col-md-6">

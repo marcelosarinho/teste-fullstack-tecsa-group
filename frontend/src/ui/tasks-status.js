@@ -1,5 +1,5 @@
 export function renderTasksStatus() {
-  document.querySelector('#todo-list').innerHTML = `
+  document.querySelector('#app').innerHTML = `
     <section id="tasks-status" class="card p-3">
       <h3 class="text-center mb-4">Status das Tarefas</h3>
 
