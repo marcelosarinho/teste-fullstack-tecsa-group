@@ -8,9 +8,9 @@ class TaskService {
     $this->repository = new TaskRepository();
   }
 
-  public function findAll()
+  public function index()
   {
-    return $this->repository->findAll();
+    return $this->repository->index();
   }
 
   public function create($task)

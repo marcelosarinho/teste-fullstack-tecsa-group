@@ -8,9 +8,9 @@ class TaskController {
     $this->service = new TaskService();
   }
   
-  public function findAll()
+  public function index()
   {
-    echo json_encode($this->service->findAll());
+    echo json_encode($this->service->index());
   }
   
   public function create()

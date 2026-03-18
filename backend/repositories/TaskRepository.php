@@ -8,7 +8,7 @@ class TaskRepository {
     $this->db = Database::connect();
   }
 
-  public function findAll()
+  public function index()
   {
     $stmt = $this->db->query("SELECT * FROM tasks");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
