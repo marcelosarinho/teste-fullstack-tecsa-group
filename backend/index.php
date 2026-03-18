@@ -6,6 +6,15 @@ require_once 'repositories/TaskRepository.php';
 require_once 'services/TaskService.php';
 require_once 'controllers/TaskController.php';
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
+
 $router = new Router();
 
 $router->add('GET', '/tasks', [new TaskController(), 'index']);

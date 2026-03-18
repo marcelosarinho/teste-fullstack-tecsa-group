@@ -10,3 +10,13 @@ renderTasksHeader();
 renderTasksStatus();
 renderTasksSearch();
 renderTasksList();
+
+$(document).ready(function() {
+    $.ajax({
+        url: 'http://localhost:9000/tasks',
+        type: 'GET',
+        success: function(response) {
+            console.log(response);
+        }
+    });
+});
