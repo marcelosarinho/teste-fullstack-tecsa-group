@@ -1,34 +1,22 @@
 export default function renderTasksList() {
   document.querySelector('#tasks-list').innerHTML = `
+  <div id="tasks-list-error" class="alert alert-danger alert-dismissible fade d-none" role="alert">
+    <strong>Erro!</strong> Ocorreu um erro ao carregar as tarefas.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
   <section class="card p-3">
     <table class="table">
       <thead>
         <tr>
           <th scope="col">Tarefa</th>
+          <th scope="col">Descrição</th>
           <th scope="col">Status</th>
+          <th scope="col">Data de Criação</th>
           <th scope="col">Ações</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td class="d-flex flex-wrap gap-2">
-            <button class="btn btn-sm btn-outline-success rounded-circle">
-              <i class="bi bi-check-lg"></i>
-            </button>
-            <button class="btn btn-sm btn-outline-primary rounded-circle">
-              <i class="bi bi-pencil"></i>
-            </button>
-            <button class="btn btn-sm btn-outline-danger rounded-circle">
-              <i class="bi bi-trash"></i>
-            </button>
-            <button class="btn btn-sm btn-outline-info rounded-circle">
-              <i class="bi bi-play"></i>
-            </button>
-          </td>
-        </tr>
-      </tbody>
+      <tbody id="tasks"></tbody>
     </table>
   </section>
 `;

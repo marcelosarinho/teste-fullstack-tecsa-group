@@ -11,8 +11,19 @@ class TaskController {
   }
   
   public function index()
-  {
-    echo json_encode($this->service->index());
+  {    
+    try {
+      $tasks = $this->service->index();
+      echo json_encode([
+          'success' => true,
+          'data' => $tasks
+      ], JSON_UNESCAPED_UNICODE);
+    } catch (Exception $e) {
+      http_response_code(500);
+      echo json_encode([
+          'error' => $e->getMessage()
+      ], JSON_UNESCAPED_UNICODE);
+    }
   }
   
   public function create()

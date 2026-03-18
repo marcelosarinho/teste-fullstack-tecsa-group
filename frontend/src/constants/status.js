@@ -1,14 +1,17 @@
 export const STATUS = [
     {
       value: 'pendente',
-      label: 'Pendente'
+      label: 'Pendente',
+      color: 'text-bg-warning'
     },
     {
       value: 'em_andamento',
-      label: 'Em andamento'
+      label: 'Em andamento',
+      color: 'text-bg-info'
     },
     {
       value: 'concluido',
-      label: 'Concluído'
+      label: 'Concluído',
+      color: 'text-bg-success'
     }
   ]
