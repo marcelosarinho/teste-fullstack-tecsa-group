@@ -1,6 +1,8 @@
 <?php
 
 require_once __DIR__ . '/../utils/getIdFromUri.php';
+require_once __DIR__ . '/../utils/Validator.php';
+require_once __DIR__ . '/../enums/Status.php';
 
 class TaskController {
   private $service;
@@ -30,9 +32,19 @@ class TaskController {
   {
     $task = json_decode(file_get_contents('php://input'), true);
 
+    $errors = Validator::validate($task ?? []);
+    if (!empty($errors)) {
+      http_response_code(422);
+      echo json_encode([
+        'success' => false,
+        'errors' => $errors
+      ], JSON_UNESCAPED_UNICODE);
+      return;
+    }
+
     $this->service->create($task);
 
-    echo json_encode(['message' => 'Task criada']);
+    echo json_encode(['message' => 'Task criada'], JSON_UNESCAPED_UNICODE);
   }
   
   public function update()
@@ -40,9 +52,19 @@ class TaskController {
     $id = getIdFromUri();
     $task = json_decode(file_get_contents('php://input'), true);
 
+    $errors = Validator::validate($task ?? []);
+    if (!empty($errors)) {
+      http_response_code(422);
+      echo json_encode([
+        'success' => false,
+        'errors' => $errors
+      ], JSON_UNESCAPED_UNICODE);
+      return;
+    }
+
     $this->service->update($id, $task);
 
-    echo json_encode(['message' => 'Task atualizada']);
+    echo json_encode(['message' => 'Task atualizada'], JSON_UNESCAPED_UNICODE);
   }
   
   public function delete()
