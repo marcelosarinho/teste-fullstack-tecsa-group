@@ -12,7 +12,7 @@ $(document).ready(function() {
 
             $('#tasks').html(
                 tasks.map(task => {
-                    const status = STATUS.find(s => s.value === task.status);
+                    const status = STATUS.find(s => s.value === task.status) ?? { color: 'bg-secondary', label: 'Desconhecido' };
 
                     return `
                         <tr>
