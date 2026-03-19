@@ -73,7 +73,7 @@ export default function renderLayout() {
                 <i class="bi bi-x"></i>
                 Cancelar
               </button>
-              <button type="submit" class="btn btn-primary">
+              <button form="create-task" type="submit" class="btn btn-primary">
                 <i class="bi bi-check"></i>
                 Criar
               </button>
@@ -118,7 +118,7 @@ export default function renderLayout() {
             </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+              <button form="edit-task" type="button" class="btn btn-danger" data-bs-dismiss="modal">
                 <i class="bi bi-x"></i>
                 Cancelar
               </button>
