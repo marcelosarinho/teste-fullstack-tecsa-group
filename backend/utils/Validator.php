@@ -9,7 +9,7 @@ class Validator {
         }
 
         if (isset($data['title']) && strlen($data['title']) > 255) {
-            $errors['title'] = 'Título deve ter no máximo 255 caracteres';
+            $errors['title'] = 'Título deve ter no máximo 255 caracteres!';
         }
 
         if (!isset($data['description']) || empty($data['description'])) {
@@ -17,7 +17,7 @@ class Validator {
         }
 
         if (isset($data['description']) && strlen($data['description']) > 255) {
-            $errors['description'] = 'Descrição deve ter no máximo 255 caracteres';
+            $errors['description'] = 'Descrição deve ter no máximo 255 caracteres!';
         }
 
         if (!isset($data['status']) || empty($data['status'])) {

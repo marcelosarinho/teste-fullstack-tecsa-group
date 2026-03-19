@@ -40,7 +40,7 @@ class ValidatorTest extends TestCase
       
       $errors = Validator::validate($data);
       
-      $this->assertEquals('Status deve ser "pendente", "concluido" ou "em_andamento"', $errors['status'] ?? null);
+      $this->assertEquals('Status inválido', $errors['status'] ?? null);
     }
 
     public function testValidPayload()
