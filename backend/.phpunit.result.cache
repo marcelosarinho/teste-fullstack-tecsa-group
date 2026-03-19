@@ -1,0 +1,1 @@
+{"version":2,"defects":[],"times":{"ValidatorTest::testRequiredFields":0.005000000000000000104083408558608425664715468883514404296875,"ValidatorTest::testMaxLenghts":0.001000000000000000020816681711721685132943093776702880859375,"ValidatorTest::testInvalidStatus":0,"ValidatorTest::testValidPayload":0}}
