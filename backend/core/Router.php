@@ -41,6 +41,10 @@ class Router {
   {
     $method = $_SERVER['REQUEST_METHOD'];
     $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+    if (str_starts_with($path, '/tasks')) {
+      Auth::requireAuth();
+    }
     
     foreach ($this->routes as $route) {
       if ($route['method'] === $method && preg_match($route['regex'], $path, $matches)) {
