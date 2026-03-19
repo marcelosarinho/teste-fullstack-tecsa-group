@@ -55,7 +55,7 @@ O projeto é uma aplicação de gerenciamento de tarefas, e utilizei as seguinte
    ```
    Então, acesse o link: http://localhost:5174/
    
-7. Uma tela de login aparecerá. Para logar, o usuário é "admin" e a senha "123456"
+7. Uma tela de login aparecerá. Para logar, o usuário é "admin" e a senha "123456". Nesse caso, fiz esse login simples mais para mostrar a autenticação de backend com JWT mesmo.
 
 ## OBS: PARA EFEITOS DE TESTE, O USUÁRIO E SENHA SÃO SIMPLES, MAS SEMPRE TOME CUIDADO NESSAS HORAS TAMBÉM!
 
