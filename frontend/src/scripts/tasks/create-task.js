@@ -1,4 +1,4 @@
-import { validateForm, renderCreateFormErrors } from "../../util/functions";
+import { handleError, handleSuccess, validateForm, renderCreateFormErrors } from "../../util/functions";
 
 $(document).ready(function() {
     $('#create-task').on('submit', function(e) {
@@ -23,15 +23,10 @@ $(document).ready(function() {
             dataType: 'json',
             data: JSON.stringify(data),
             success: function() {
-                $('#alert-create-success').removeClass('d-none').addClass('show');
-                $('#modal-create-task').modal('hide');
-
-                setTimeout(() => {
-                    window.location.reload();
-                }, 1000);
+                handleSuccess('#alert-create-success', '#modal-create-task');
             },
             error: function() {
-                $('#alert-create-error').removeClass('d-none').addClass('show');
+                handleError('#alert-create-error');
             }
         });
     });

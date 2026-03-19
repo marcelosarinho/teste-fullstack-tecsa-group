@@ -1,3 +1,5 @@
+import { handleError, handleSuccess } from "../../util/functions";
+
 $(document).ready(function() {
     $(document).on('click', '.delete-task-btn', function(event) {
         const taskId = $(this).data('task-id');
@@ -17,15 +19,10 @@ $(document).ready(function() {
             type: 'DELETE',
             dataType: 'json',
             success: function() {
-                $('#alert-delete-success').removeClass('d-none').addClass('show');
-                $('#modal-delete-task').modal('hide');
-
-                setTimeout(() => {
-                    window.location.reload();
-                }, 1000);
+                handleSuccess('#alert-delete-success', '#modal-delete-task');
             },
             error: function() {
-                $('#alert-delete-error').removeClass('d-none').addClass('show');
+                handleError('#alert-delete-error');
             }
         });
     });

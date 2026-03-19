@@ -59,3 +59,19 @@ export function tasksStatusQuantity(statusCounts) {
     $('#in-progress-tasks').text(statusCounts.em_andamento || 0);
     $('#completed-tasks').text(statusCounts.concluido || 0);
 }
+
+export function handleSuccess(elementId, modal = null) {
+    $(elementId).removeClass('d-none').addClass('show');
+    
+    if (modal) {
+        $(modal).modal('hide');
+    }
+
+    setTimeout(() => {
+        window.location.reload();
+    }, 1000);
+}
+
+export function handleError(elementId) {
+    $(elementId).removeClass('d-none').addClass('show');
+}

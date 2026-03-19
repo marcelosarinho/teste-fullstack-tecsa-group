@@ -1,4 +1,4 @@
-import { renderEditFormErrors, validateForm } from "../../util/functions";
+import { handleError, handleSuccess, renderEditFormErrors, validateForm } from "../../util/functions";
 
 function updateTask(id, data) {
   return $.ajax({
@@ -8,19 +8,6 @@ function updateTask(id, data) {
     data: JSON.stringify(data),
     contentType: 'application/json'
   });
-}
-
-function handleSuccess() {
-  $('#alert-update-success').removeClass('d-none').addClass('show');
-  $('#modal-edit-task').modal('hide');
-
-  setTimeout(() => {
-    window.location.reload();
-  }, 1000);
-}
-
-function handleError() {
-  $('#alert-update-error').removeClass('d-none').addClass('show');
 }
 
 $(document).ready(function() {
@@ -49,7 +36,7 @@ $(document).ready(function() {
       return;
     }
     
-    updateTask(id, data).done(() => handleSuccess()).fail(handleError);
+    updateTask(id, data).done(() => handleSuccess('#alert-update-success', '#modal-edit-task')).fail(() => handleError('#alert-update-error'));
   });
 
   $(document).on('click', '.change-status-btn', function(event) {
@@ -62,6 +49,6 @@ $(document).ready(function() {
       status 
     };
 
-    updateTask(taskId, data).done(() => handleSuccess()).fail(handleError);
+    updateTask(taskId, data).done(() => handleSuccess('#alert-update-success', '#modal-edit-task')).fail(() => handleError('#alert-update-error'));
   });
 })
