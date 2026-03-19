@@ -24,8 +24,13 @@ $(document).ready(function() {
                             <td>${new Date(task.created_at).toLocaleDateString('pt-BR')}</td>
                             <td class="d-flex gap-2">
                                 <button
+                                    data-id="${task.id}"
+                                    data-status="concluido"
+                                    data-task-title="${task.title}"
+                                    data-task-description="${task.description}"
+                                    ${task.status === "concluido" ? "disabled" : ""}
                                     title="Marcar como concluída"
-                                    class="btn btn-sm btn-outline-success rounded-circle">
+                                    class="btn btn-sm btn-outline-success rounded-circle change-status-btn">
                                     <i class="bi bi-check-lg"></i>
                                 </button>
                                 <button
@@ -50,15 +55,23 @@ $(document).ready(function() {
                                     <i class="bi bi-trash"></i>
                                 </button>
                                 <button
+                                    data-id="${task.id}"
+                                    data-status="em_andamento"
+                                    data-task-title="${task.title}"
+                                    data-task-description="${task.description}"
                                     ${task.status === "em_andamento" ? "disabled" : ""}
-                                    title="Iniciar tarefa"
-                                    class="btn btn-sm btn-outline-info rounded-circle">
+                                    title="Marcar como em andamento"
+                                    class="btn btn-sm btn-outline-info rounded-circle change-status-btn">
                                     <i class="bi bi-play"></i>
                                 </button>
                                 <button
-                                    ${task.status === "pendente" || task.status === "concluido" ? "disabled" : ""}
-                                    title="Pausar tarefa"
-                                    class="btn btn-sm btn-outline-warning rounded-circle">
+                                    data-id="${task.id}"
+                                    data-status="pendente"
+                                    data-task-title="${task.title}"
+                                    data-task-description="${task.description}"
+                                    ${task.status === "pendente" ? "disabled" : ""}
+                                    title="Marcar como pendente"
+                                    class="btn btn-sm btn-outline-warning rounded-circle change-status-btn">
                                     <i class="bi bi-pause"></i>
                                 </button>
                             </td>
